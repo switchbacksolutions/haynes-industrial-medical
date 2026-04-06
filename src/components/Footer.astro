@@ -1,70 +1,87 @@
 ---
 /**
- * Footer.astro
- * ─────────────────────────────────────────────────────────────────────────────
- * Site-wide footer with copyright, navigation links, and an RSS link.
+ * Footer.astro — Haynes Industrial Medicine
  */
 
 const year = new Date().getFullYear();
 
-const FOOTER_LINKS = [
+const SERVICES = [
+  { href: '/services#dot', label: 'DOT Physicals' },
+  { href: '/services#drug-testing', label: 'Drug & Alcohol Testing' },
+  { href: '/services#injury-care', label: 'Injury Care' },
+  { href: '/services#pre-employment', label: 'Pre-Employment Physicals' },
+  { href: '/services#osha', label: 'OSHA Surveillance' },
+  { href: '/services#return-to-work', label: 'Return-to-Work' },
+];
+
+const COMPANY = [
   { href: '/', label: 'Home' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
-  { href: '/rss.xml', label: 'RSS', external: true },
+  { href: '/about', label: 'About Us' },
+  { href: '/contact', label: 'Contact' },
 ];
 ---
 
-<footer class="border-t border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
-  <div class="mx-auto max-w-4xl px-4 py-10 sm:px-6">
-    <div class="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
-      <!-- Site name -->
-      <p class="text-sm font-semibold text-gray-900 dark:text-white">
-        Astro Template
-      </p>
+<footer class="bg-brand-900 text-brand-200">
+  <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
 
-      <!-- Footer navigation -->
-      <nav aria-label="Footer navigation">
-        <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 list-none m-0 p-0">
-          {FOOTER_LINKS.map(({ href, label, external }) => (
+      <!-- Brand block -->
+      <div class="lg:col-span-2">
+        <p class="text-xl font-bold text-white">
+          Haynes<br />
+          <span class="text-accent-400">Industrial Medicine</span>
+        </p>
+        <p class="mt-4 text-sm leading-relaxed text-brand-300 max-w-xs">
+          Occupational health built by people who understand industrial work.
+          Fast, expert care — because your team doesn't have time to waste.
+        </p>
+        <div class="mt-6 space-y-1 text-sm">
+          <p class="text-white font-medium">
+            <a href="tel:+15555550100" class="no-underline text-accent-400 hover:text-accent-300 transition-colors">
+              (555) 555-0100
+            </a>
+          </p>
+          <p class="text-brand-300">Mon – Fri 7 am – 6 pm · Sat 8 am – 2 pm</p>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest text-brand-400 mb-4">Services</p>
+        <ul class="space-y-2 list-none m-0 p-0">
+          {SERVICES.map(({ href, label }) => (
             <li>
-              <a
-                href={href}
-                class="text-sm text-gray-500 no-underline hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
-                rel={external ? 'noopener noreferrer' : undefined}
-                target={external ? '_blank' : undefined}
-              >
+              <a href={href} class="text-sm text-brand-300 no-underline hover:text-white transition-colors">
                 {label}
-                {external && (
-                  <span class="sr-only">(opens in new tab)</span>
-                )}
               </a>
             </li>
           ))}
         </ul>
-      </nav>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest text-brand-400 mb-4">Company</p>
+        <ul class="space-y-2 list-none m-0 p-0">
+          {COMPANY.map(({ href, label }) => (
+            <li>
+              <a href={href} class="text-sm text-brand-300 no-underline hover:text-white transition-colors">
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a
+          href="/contact"
+          class="mt-6 inline-flex items-center gap-2 rounded-md bg-accent-500 px-4 py-2 text-sm font-semibold text-white hover:bg-accent-600 transition-colors no-underline"
+        >
+          Schedule an Appointment
+        </a>
+      </div>
     </div>
 
-    <!-- Copyright -->
-    <p class="mt-8 text-center text-xs text-gray-400 dark:text-gray-500">
-      &copy; {year} Astro Template. Built with{' '}
-      <a
-        href="https://astro.build"
-        class="text-brand-500 no-underline hover:underline"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Astro
-      </a>{' '}
-      &amp;{' '}
-      <a
-        href="https://tailwindcss.com"
-        class="text-brand-500 no-underline hover:underline"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Tailwind CSS
-      </a>.
-    </p>
+    <div class="mt-12 border-t border-brand-800 pt-8 text-center text-xs text-brand-500">
+      &copy; {year} Haynes Industrial Medicine. All rights reserved.
+    </div>
   </div>
 </footer>

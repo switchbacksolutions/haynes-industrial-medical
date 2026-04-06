@@ -1,124 +1,337 @@
 ---
 /**
- * src/pages/index.astro — Home page
- *
- * Shows a hero section and the three most recent published blog posts.
+ * src/pages/index.astro — Haynes Industrial Medicine Homepage
  */
 
-import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import FormattedDate from '@/components/FormattedDate.astro';
-
-const allPosts = await getCollection('blog', ({ data }) => !data.draft);
-const recentPosts = allPosts
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
 ---
 
 <BaseLayout
-  title="Astro Template"
-  description="A production-ready Astro blog template with Tailwind CSS, MDX, and CloudCannon CMS support."
+  title="Haynes Industrial Medicine"
+  description="Occupational medicine built by people who know industrial work. Fast, expert care — DOT physicals, drug testing, injury treatment, and more."
 >
-  <!-- Hero -->
-  <section class="bg-gradient-to-br from-brand-50 to-white dark:from-gray-900 dark:to-gray-950">
-    <div class="mx-auto max-w-4xl px-4 py-24 sm:px-6 text-center">
-      <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white text-balance">
-        Welcome to<br />
-        <span class="text-brand-600 dark:text-brand-400">Astro Template</span>
-      </h1>
-      <p class="mx-auto mt-6 max-w-2xl text-xl text-gray-600 dark:text-gray-400 text-pretty">
-        A production-ready starter with Astro, Tailwind CSS, MDX, content
-        collections, CloudCannon CMS integration, and Netlify deployment.
-      </p>
-      <div class="mt-10 flex flex-wrap justify-center gap-4">
-        <a href="/blog" class="btn-primary">
-          Read the blog
-        </a>
-        <a href="/about" class="btn-secondary">
-          About this template
-        </a>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="relative min-h-[88vh] flex items-center overflow-hidden bg-brand-900">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80"
+        alt="Industrial worker in a hard hat at a manufacturing facility"
+        class="h-full w-full object-cover object-center opacity-40"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <!-- Gradient overlay — stronger on left so text pops -->
+      <div class="absolute inset-0 bg-gradient-to-r from-brand-900/95 via-brand-900/70 to-brand-900/30"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-6xl px-4 py-28 sm:px-6">
+      <div class="max-w-2xl">
+        <!-- Eyebrow -->
+        <span class="inline-flex items-center gap-2 rounded-full border border-accent-500/40 bg-accent-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent-400">
+          Occupational Medicine · Industrial Focus
+        </span>
+
+        <!-- Headline -->
+        <h1 class="mt-6 text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl text-balance">
+          Healthcare Built for<br />
+          <span class="text-accent-400">The Workforce That Builds Everything Else</span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="mt-6 text-xl leading-relaxed text-brand-200 max-w-xl text-pretty">
+          Your crew keeps the world moving. We keep your crew healthy —
+          with same-day appointments, rapid results, and care that respects
+          every minute on the clock.
+        </p>
+
+        <!-- CTAs -->
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a href="/contact" class="btn-primary text-base px-7 py-3">
+            Schedule an Appointment
+          </a>
+          <a href="/services" class="btn-ghost text-base px-7 py-3">
+            See Our Services
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Recent posts -->
-  {recentPosts.length > 0 && (
-    <section class="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-      <div class="flex items-baseline justify-between mb-8">
-        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">
-          Recent Posts
+  <!-- ═══════════════════════════════════════════════════════════════
+       STATS STRIP
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="bg-accent-500">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <ul class="grid grid-cols-2 divide-x divide-accent-400/40 lg:grid-cols-4 list-none m-0 p-0">
+        {[
+          { stat: 'Same-Day', label: 'Appointments Available' },
+          { stat: '24 hrs', label: 'Results Turnaround' },
+          { stat: 'On-Site', label: 'Services Available' },
+          { stat: '15+ yrs', label: 'Industrial Experience' },
+        ].map(({ stat, label }) => (
+          <li class="flex flex-col items-center py-6 px-4 text-center">
+            <span class="text-2xl font-bold text-white">{stat}</span>
+            <span class="mt-1 text-sm font-medium text-accent-100">{label}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SERVICES
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="bg-white py-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-semibold uppercase tracking-widest text-accent-600">What We Do</span>
+        <h2 class="mt-3 text-4xl font-bold text-brand-900 text-balance">
+          Comprehensive Occupational Medicine
         </h2>
-        <a
-          href="/blog"
-          class="text-sm font-medium text-brand-600 no-underline hover:underline dark:text-brand-400"
-        >
-          View all →
-        </a>
+        <p class="mt-4 text-lg text-gray-600">
+          Everything your operation needs to stay compliant, productive, and protected — under one roof.
+        </p>
       </div>
 
       <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 list-none m-0 p-0">
-        {recentPosts.map((post) => (
+        {[
+          {
+            title: 'DOT Physical Examinations',
+            desc: 'FMCSA-certified exams for commercial drivers. Fast scheduling so your drivers stay on the road, not in a waiting room.',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" /></svg>`,
+            href: '/services#dot',
+          },
+          {
+            title: 'Drug & Alcohol Testing',
+            desc: 'DOT and non-DOT drug screens, breath alcohol tests, and MRO services. Random pools, post-accident, and pre-employment.',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>`,
+            href: '/services#drug-testing',
+          },
+          {
+            title: 'Workers\' Comp Injury Care',
+            desc: 'Immediate treatment for workplace injuries. We coordinate directly with adjusters to move claims forward — not sideways.',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" /></svg>`,
+            href: '/services#injury-care',
+          },
+          {
+            title: 'Pre-Employment Physicals',
+            desc: 'Baseline exams, functional capacity evaluations, and fit-for-duty assessments that protect you from day one.',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>`,
+            href: '/services#pre-employment',
+          },
+          {
+            title: 'OSHA Medical Surveillance',
+            desc: 'Hearing conservation, respiratory protection, hazmat exams, and full recordkeeping support to keep your site compliant.',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>`,
+            href: '/services#osha',
+          },
+          {
+            title: 'Return-to-Work Programs',
+            desc: 'Modified duty plans, functional assessments, and ongoing coordination to get injured workers back safely — and keep them there.',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>`,
+            href: '/services#return-to-work',
+          },
+        ].map(({ title, desc, icon, href }) => (
           <li>
-            <a href={`/blog/${post.slug}`} class="group block card h-full no-underline">
-              {post.data.heroImage && (
-                <img
-                  src={post.data.heroImage}
-                  alt={post.data.title}
-                  class="mb-4 h-40 w-full rounded-lg object-cover"
-                  loading="lazy"
-                  width={600}
-                  height={315}
-                />
-              )}
-
-              {post.data.tags.length > 0 && (
-                <div class="mb-2 flex flex-wrap gap-1">
-                  {post.data.tags.slice(0, 2).map((tag) => (
-                    <span class="tag-pill">{tag}</span>
-                  ))}
-                </div>
-              )}
-
-              <h3 class="text-lg font-semibold text-gray-900 group-hover:text-brand-600 dark:text-white dark:group-hover:text-brand-400 transition-colors text-balance">
-                {post.data.title}
-              </h3>
-
-              <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 line-clamp-3">
-                {post.data.description}
-              </p>
-
-              <p class="mt-4 text-xs">
-                <FormattedDate date={post.data.pubDate} format="short" />
-              </p>
+            <a href={href} class="group flex flex-col h-full rounded-xl border border-gray-100 bg-white p-7 shadow-sm hover:shadow-md hover:border-accent-200 transition-all no-underline">
+              <span class="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-50 text-brand-700 group-hover:bg-accent-50 group-hover:text-accent-600 transition-colors" set:html={icon} />
+              <h3 class="mt-5 text-lg font-semibold text-brand-900 group-hover:text-accent-600 transition-colors">{title}</h3>
+              <p class="mt-2 text-sm text-gray-600 leading-relaxed flex-1">{desc}</p>
+              <span class="mt-4 text-xs font-semibold text-accent-600 group-hover:underline">Learn more →</span>
             </a>
           </li>
         ))}
       </ul>
-    </section>
-  )}
+    </div>
+  </section>
 
-  <!-- Feature highlights -->
-  <section class="bg-gray-50 dark:bg-gray-900">
-    <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-      <h2 class="mb-10 text-center text-2xl font-semibold text-gray-900 dark:text-white">
-        What's included
-      </h2>
-      <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 list-none m-0 p-0">
+  <!-- ═══════════════════════════════════════════════════════════════
+       DIFFERENTIATORS
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="bg-gray-50 py-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-semibold uppercase tracking-widest text-accent-600">Why Choose Us</span>
+        <h2 class="mt-3 text-4xl font-bold text-brand-900 text-balance">
+          We See Your Workers the Way You Do
+        </h2>
+      </div>
+
+      <div class="grid gap-10 lg:grid-cols-2">
+
+        <!-- Differentiator 1: Industrial Experience -->
+        <div class="relative overflow-hidden rounded-2xl bg-brand-900 text-white">
+          <img
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80"
+            alt="Industrial worker operating heavy equipment"
+            class="absolute inset-0 h-full w-full object-cover object-center opacity-25"
+            loading="lazy"
+          />
+          <div class="relative p-10">
+            <span class="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent-500/20 text-accent-400">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z" />
+              </svg>
+            </span>
+            <h3 class="mt-6 text-2xl font-bold leading-snug text-balance">
+              We've Worked the Floor.<br />
+              <span class="text-accent-400">We Know What's at Stake.</span>
+            </h3>
+            <p class="mt-4 text-brand-200 leading-relaxed">
+              The Haynes family has run industrial operations for over fifteen years. We've managed crews,
+              dealt with OSHA audits, and watched what happens when occupational health is treated as an afterthought.
+              That experience is built into everything we do.
+            </p>
+            <ul class="mt-6 space-y-3 text-sm text-brand-200">
+              {[
+                'We understand production pressure — and work around it',
+                'We speak the language of your safety program',
+                'We know which regulations actually matter for your industry',
+              ].map((item) => (
+                <li class="flex items-start gap-3">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-accent-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Differentiator 2: Speed & Respect -->
+        <div class="relative overflow-hidden rounded-2xl bg-brand-900 text-white">
+          <img
+            src="https://images.unsplash.com/photo-1565098772267-60af42b81ef2?auto=format&fit=crop&w=900&q=80"
+            alt="Workers collaborating at an industrial facility"
+            class="absolute inset-0 h-full w-full object-cover object-center opacity-25"
+            loading="lazy"
+          />
+          <div class="relative p-10">
+            <span class="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent-500/20 text-accent-400">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+            </span>
+            <h3 class="mt-6 text-2xl font-bold leading-snug text-balance">
+              Your Time Isn't Billable<br />
+              <span class="text-accent-400">When You're in a Waiting Room.</span>
+            </h3>
+            <p class="mt-4 text-brand-200 leading-relaxed">
+              An hour waiting at a clinic is an hour your worker isn't earning. We've engineered
+              our entire operation around speed — because respecting your team means respecting their time.
+            </p>
+            <ul class="mt-6 space-y-3 text-sm text-brand-200">
+              {[
+                'Same-day appointments, usually within the hour',
+                'Digital paperwork completed before arrival',
+                'Results sent directly to your safety manager',
+                'On-site services that come to your facility',
+              ].map((item) => (
+                <li class="flex items-start gap-3">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-accent-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       HOW IT WORKS
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="bg-white py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 text-center">
+      <span class="text-xs font-semibold uppercase tracking-widest text-accent-600">Simple Process</span>
+      <h2 class="mt-3 text-4xl font-bold text-brand-900">Getting Started Is Simple</h2>
+      <p class="mt-4 text-lg text-gray-600">
+        We've cut the friction out of occupational health. Here's how it works.
+      </p>
+
+      <ol class="mt-14 grid gap-8 sm:grid-cols-3 list-none m-0 p-0 text-left">
         {[
-          { emoji: '⚡', title: 'Astro + TypeScript', desc: 'Zero-JS by default with full type safety.' },
-          { emoji: '🎨', title: 'Tailwind CSS', desc: 'Utility-first styling with dark mode support.' },
-          { emoji: '📝', title: 'MDX Blog', desc: 'Write posts in Markdown with JSX components.' },
-          { emoji: '🗺️', title: 'Sitemap & RSS', desc: 'Auto-generated sitemap.xml and RSS feed.' },
-          { emoji: '🔒', title: 'Security Headers', desc: 'Production-ready headers via Netlify.' },
-          { emoji: '🧪', title: 'Testing', desc: 'Vitest unit tests + Playwright E2E tests.' },
-        ].map(({ emoji, title, desc }) => (
-          <li class="card">
-            <p class="text-3xl mb-3" aria-hidden="true">{emoji}</p>
-            <h3 class="font-semibold text-gray-900 dark:text-white">{title}</h3>
-            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{desc}</p>
+          {
+            step: '01',
+            title: 'Call or Book Online',
+            desc: 'Reach us by phone or through our online portal. Same-day slots are almost always available — no referral needed.',
+          },
+          {
+            step: '02',
+            title: 'We See Your Worker',
+            desc: 'Your employee arrives (or we come to you). No long waits, no unnecessary steps. We focus on what the job requires.',
+          },
+          {
+            step: '03',
+            title: 'Results Delivered Fast',
+            desc: 'Paperwork, lab results, and clearance letters go straight to your safety team — usually within 24 hours.',
+          },
+        ].map(({ step, title, desc }) => (
+          <li class="relative pl-0">
+            <span class="text-6xl font-black text-brand-50 leading-none select-none">{step}</span>
+            <h3 class="mt-2 text-xl font-bold text-brand-900">{title}</h3>
+            <p class="mt-2 text-sm text-gray-600 leading-relaxed">{desc}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       INDUSTRIES SERVED
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="bg-gray-50 py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <p class="text-center text-sm font-semibold uppercase tracking-widest text-gray-400 mb-10">
+        Industries We Serve
+      </p>
+      <ul class="flex flex-wrap justify-center gap-3 list-none m-0 p-0">
+        {[
+          'Manufacturing', 'Transportation & Logistics', 'Construction',
+          'Oil & Gas', 'Mining', 'Utilities', 'Warehousing',
+          'Chemical Processing', 'Shipbuilding', 'Heavy Equipment',
+        ].map((industry) => (
+          <li class="rounded-full border border-brand-200 bg-white px-5 py-2 text-sm font-medium text-brand-700 shadow-sm">
+            {industry}
           </li>
         ))}
       </ul>
     </div>
   </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       CTA BANNER
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-brand-900 py-24">
+    <!-- Subtle texture -->
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 12px 12px;"></div>
+
+    <div class="relative mx-auto max-w-4xl px-4 sm:px-6 text-center">
+      <h2 class="text-4xl font-bold text-white text-balance">
+        Ready to Protect Your Workforce?
+      </h2>
+      <p class="mt-5 text-lg text-brand-200 max-w-xl mx-auto text-pretty">
+        Let's talk about what your operation needs. We'll build a program
+        around your schedule, your industry, and your team.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="/contact" class="btn-primary text-base px-8 py-3.5">
+          Schedule an Appointment
+        </a>
+        <a href="tel:+15555550100" class="btn-ghost text-base px-8 py-3.5">
+          Call (555) 555-0100
+        </a>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>
