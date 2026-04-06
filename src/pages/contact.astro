@@ -1,0 +1,149 @@
+---
+/**
+ * src/pages/contact.astro — Contact page with Netlify Forms
+ */
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const submitted = Astro.url.searchParams.get('submitted') === 'true';
+---
+
+<BaseLayout
+  title="Contact Haynes Industrial Medicine"
+  description="Get in touch with Haynes Industrial Medicine to schedule DOT drug testing, respirator fit testing, or CPR/AED training for your workforce."
+>
+  <main class="mx-auto max-w-2xl px-4 py-16 sm:px-6">
+    <h1 class="text-4xl font-bold text-brand-900 dark:text-white">Contact Us</h1>
+    <p class="mt-3 text-xl font-medium text-brand-600 dark:text-brand-400 italic">
+      Let's figure out what you need and get it done.
+    </p>
+
+    {submitted ? (
+      <div class="mt-10 rounded-xl border border-green-200 bg-green-50 p-8 text-center dark:border-green-800 dark:bg-green-950">
+        <svg class="mx-auto h-12 w-12 text-green-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+        </svg>
+        <h2 class="mt-4 text-2xl font-semibold text-green-800 dark:text-green-200">Message Sent</h2>
+        <p class="mt-2 text-green-700 dark:text-green-300">
+          Thanks for reaching out. We'll be in touch shortly.
+        </p>
+        <a href="/contact" class="mt-6 btn-primary inline-flex">Send Another Message</a>
+      </div>
+    ) : (
+      <div class="mt-10">
+        <form
+          name="contact"
+          method="POST"
+          action="/contact?submitted=true"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          class="flex flex-col gap-6"
+        >
+          {/* Required hidden input for Netlify */}
+          <input type="hidden" name="form-name" value="contact" />
+
+          {/* Honeypot field — hidden from humans, catches bots */}
+          <p class="hidden">
+            <label>Don't fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Name <span class="text-red-500" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                autocomplete="name"
+                class="mt-1.5 block w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-brand-400 dark:focus:ring-brand-400"
+              />
+            </div>
+
+            <div>
+              <label for="company" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Company
+              </label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                autocomplete="organization"
+                class="mt-1.5 block w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-brand-400 dark:focus:ring-brand-400"
+              />
+            </div>
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Email <span class="text-red-500" aria-hidden="true">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                autocomplete="email"
+                class="mt-1.5 block w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-brand-400 dark:focus:ring-brand-400"
+              />
+            </div>
+
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Phone
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                autocomplete="tel"
+                class="mt-1.5 block w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-brand-400 dark:focus:ring-brand-400"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="service" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              Service of interest
+            </label>
+            <select
+              id="service"
+              name="service"
+              class="mt-1.5 block w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-brand-400 dark:focus:ring-brand-400"
+            >
+              <option value="">Select a service…</option>
+              <option value="dot-drug-testing">DOT Drug Testing</option>
+              <option value="respirator-fit-testing">Respirator Fit Testing</option>
+              <option value="cpr-aed-training">CPR/AED Training</option>
+              <option value="multiple">Multiple services</option>
+              <option value="other">Other / Not sure</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              Message <span class="text-red-500" aria-hidden="true">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="5"
+              class="mt-1.5 block w-full rounded-md border border-gray-300 bg-white px-4 py-2.5 text-gray-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-brand-400 dark:focus:ring-brand-400"
+              placeholder="Tell us what you need and when — we'll get back to you quickly."
+            ></textarea>
+          </div>
+
+          <div>
+            <button type="submit" class="btn-primary w-full sm:w-auto">
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    )}
+  </main>
+</BaseLayout>
