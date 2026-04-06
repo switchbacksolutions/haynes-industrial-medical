@@ -32,7 +32,7 @@ function isActive(href: string): boolean {
     </a>
 
     <!-- Desktop navigation -->
-    <nav aria-label="Main navigation">
+    <nav aria-label="Main navigation" class="hidden md:block">
       <ul class="flex items-center gap-6 list-none m-0 p-0">
         {NAV_LINKS.map(({ href, label }) => (
           <li>
@@ -58,5 +58,64 @@ function isActive(href: string): boolean {
       </ul>
     </nav>
 
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-toggle"
+      class="md:hidden flex items-center justify-center w-10 h-10 text-brand-200 hover:text-white transition-colors"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Toggle navigation menu"
+    >
+      <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-brand-900">
+    <nav aria-label="Mobile navigation">
+      <ul class="flex flex-col list-none m-0 p-0 px-4 py-3 gap-1">
+        {NAV_LINKS.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              class:list={[
+                'block py-2 text-sm font-medium no-underline transition-colors',
+                isActive(href)
+                  ? 'text-accent-400'
+                  : 'text-brand-200 hover:text-white',
+              ]}
+              aria-current={isActive(href) ? 'page' : undefined}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+        <li class="pt-2 pb-1">
+          <a href="/contact" class="btn-primary text-sm px-4 py-2 inline-block">
+            Schedule Now
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden', isOpen);
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    iconOpen?.classList.toggle('hidden', !isOpen);
+    iconClose?.classList.toggle('hidden', isOpen);
+  });
+</script>
