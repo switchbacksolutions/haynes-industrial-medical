@@ -1,13 +1,13 @@
-# Astro Template
+# Haynes Industrial Medicine
 
-A production-ready Astro.js blog template with TypeScript, Tailwind CSS, MDX,
-content collections, CloudCannon CMS integration, and Netlify deployment.
+The main website for Haynes Industrial Medicine, built with Astro.js, TypeScript,
+Tailwind CSS, MDX, content collections, CloudCannon CMS integration, and Netlify deployment.
 
 ## Quick start
 
 ```bash
-git clone https://github.com/your-org/astro-template.git my-site
-cd my-site
+git clone https://github.com/your-org/haynes-industrial-medicine.git
+cd haynes-industrial-medicine
 npm install
 npm run dev
 ```
