@@ -1,0 +1,295 @@
+---
+/**
+ * src/pages/services.astro — Services overview for Haynes Industrial Medicine
+ */
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Services — Haynes Industrial Medicine"
+  description="DOT drug testing, respirator fit testing, and CPR/AED training for industrial workforces. Fast turnaround, on-site options, and documentation delivered same day."
+>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       PAGE HEADER
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="bg-brand-900 py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 text-center">
+      <span class="inline-flex items-center gap-2 rounded-full border border-accent-500/40 bg-accent-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent-400">
+        What We Do
+      </span>
+      <h1 class="mt-6 text-5xl font-bold text-white text-balance">
+        Testing and Training<br />
+        <span class="text-accent-400">Built for Industry</span>
+      </h1>
+      <p class="mt-5 text-lg text-brand-200 max-w-2xl mx-auto text-pretty">
+        We focus on the three things industrial employers need most —
+        keeping workers compliant, certified, and back on the job fast.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SERVICE 1: DOT DRUG TESTING
+  ════════════════════════════════════════════════════════════════ -->
+  <section id="dot-drug-testing" class="bg-white py-24 scroll-mt-16">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-accent-600">Service 01</span>
+          <h2 class="mt-3 text-4xl font-bold text-brand-900 text-balance">
+            DOT Drug Testing
+          </h2>
+          <p class="mt-5 text-lg text-gray-600 leading-relaxed">
+            DOT-compliant urine drug screens for regulated employers — with fast
+            turnaround and Medical Review Officer (MRO) review included. We handle
+            every test type your safety program requires.
+          </p>
+
+          <ul class="mt-8 space-y-4">
+            {[
+              {
+                title: 'Pre-Employment',
+                desc: 'Test new hires before they start in a safety-sensitive role. Same-day collection almost always available.',
+              },
+              {
+                title: 'Random Testing',
+                desc: 'DOT-compliant random selection and collection. We work with your existing consortium or set one up.',
+              },
+              {
+                title: 'Post-Accident',
+                desc: 'Fast response for post-accident testing when timing is critical to your incident investigation.',
+              },
+              {
+                title: 'Reasonable Suspicion',
+                desc: 'Discrete, professional testing when supervisors have documented reasonable cause.',
+              },
+              {
+                title: 'Return-to-Duty & Follow-Up',
+                desc: 'Coordinated testing for employees returning under an SAP program.',
+              },
+            ].map(({ title, desc }) => (
+              <li class="flex items-start gap-4">
+                <span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-100">
+                  <svg class="h-3 w-3 text-accent-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <div>
+                  <span class="font-semibold text-brand-900">{title}</span>
+                  <span class="text-gray-600"> — {desc}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a href="/contact" class="btn-primary px-7 py-3">Schedule Drug Testing</a>
+          </div>
+        </div>
+
+        <div class="relative overflow-hidden rounded-2xl bg-brand-900 aspect-[4/3]">
+          <img
+            src="https://images.unsplash.com/photo-1579165466949-3180a3d056d5?auto=format&fit=crop&w=900&q=80"
+            alt="Lab technician preparing a drug screening sample"
+            class="absolute inset-0 h-full w-full object-cover object-center opacity-60"
+            loading="lazy"
+          />
+          <div class="absolute bottom-0 left-0 right-0 bg-brand-900/90 backdrop-blur-sm px-8 py-6">
+            <p class="text-sm font-semibold text-accent-400 uppercase tracking-widest">Fast Turnaround</p>
+            <p class="mt-1 text-white font-bold text-xl leading-snug">Results within 24 hours. MRO review included.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="bg-gray-100 h-px mx-auto max-w-5xl"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SERVICE 2: RESPIRATOR FIT TESTING
+  ════════════════════════════════════════════════════════════════ -->
+  <section id="respirator-fit" class="bg-white py-24 scroll-mt-16">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+
+        <div class="relative overflow-hidden rounded-2xl bg-brand-900 aspect-[4/3] order-last lg:order-first">
+          <img
+            src="https://images.unsplash.com/photo-1603539947678-cd3954ed515d?auto=format&fit=crop&w=900&q=80"
+            alt="Worker being fitted with a respirator mask"
+            class="absolute inset-0 h-full w-full object-cover object-center opacity-60"
+            loading="lazy"
+          />
+          <div class="absolute bottom-0 left-0 right-0 bg-brand-900/90 backdrop-blur-sm px-8 py-6">
+            <p class="text-sm font-semibold text-accent-400 uppercase tracking-widest">OSHA Required</p>
+            <p class="mt-1 text-white font-bold text-xl leading-snug">Quantitative and qualitative testing. Proper documentation delivered.</p>
+          </div>
+        </div>
+
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-accent-600">Service 02</span>
+          <h2 class="mt-3 text-4xl font-bold text-brand-900 text-balance">
+            Respirator Fit Testing
+          </h2>
+          <p class="mt-5 text-lg text-gray-600 leading-relaxed">
+            OSHA requires fit testing for any worker who wears a tight-fitting respirator. We test,
+            document, and clear your workers — at your facility or ours.
+          </p>
+
+          <ul class="mt-8 space-y-4">
+            {[
+              {
+                title: 'Qualitative Fit Testing (QLFT)',
+                desc: 'Pass/fail testing using a test agent for half-face respirators. Fast and cost-effective for most applications.',
+              },
+              {
+                title: 'Quantitative Fit Testing (QNFT)',
+                desc: 'Instrument-based testing with a numerical fit factor — required for certain respirator types and exposures.',
+              },
+              {
+                title: 'Annual Retesting',
+                desc: 'OSHA mandates annual retesting. We can schedule your entire crew and handle the paperwork in bulk.',
+              },
+              {
+                title: 'Documentation & Records',
+                desc: 'Fit test records formatted and delivered to your safety manager, ready for your respiratory protection program files.',
+              },
+              {
+                title: 'On-Site Available',
+                desc: 'We bring the equipment to your facility to minimize lost production time.',
+              },
+            ].map(({ title, desc }) => (
+              <li class="flex items-start gap-4">
+                <span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-100">
+                  <svg class="h-3 w-3 text-accent-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <div>
+                  <span class="font-semibold text-brand-900">{title}</span>
+                  <span class="text-gray-600"> — {desc}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a href="/contact" class="btn-primary px-7 py-3">Schedule Fit Testing</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="bg-gray-100 h-px mx-auto max-w-5xl"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SERVICE 3: CPR/AED TRAINING
+  ════════════════════════════════════════════════════════════════ -->
+  <section id="cpr-aed" class="bg-white py-24 scroll-mt-16">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-accent-600">Service 03</span>
+          <h2 class="mt-3 text-4xl font-bold text-brand-900 text-balance">
+            CPR/AED Training
+          </h2>
+          <p class="mt-5 text-lg text-gray-600 leading-relaxed">
+            American Heart Association-aligned CPR and AED certification for
+            individuals and work groups. We come to your facility and schedule
+            around your shifts.
+          </p>
+
+          <ul class="mt-8 space-y-4">
+            {[
+              {
+                title: 'CPR Certification',
+                desc: 'Hands-on CPR training for adult, child, and infant — meeting OSHA and employer certification requirements.',
+              },
+              {
+                title: 'AED Training',
+                desc: 'Practical training on automated external defibrillator use, with your specific AED model when possible.',
+              },
+              {
+                title: 'Group Training',
+                desc: 'We train entire crews or departments in a single session — scheduled to minimize disruption to your operation.',
+              },
+              {
+                title: 'On-Site at Your Facility',
+                desc: 'We bring everything we need and train your team where they work, on your schedule.',
+              },
+              {
+                title: 'Certification Records',
+                desc: 'Certificates issued for each participant and delivered to your HR or safety team the same day.',
+              },
+            ].map(({ title, desc }) => (
+              <li class="flex items-start gap-4">
+                <span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-100">
+                  <svg class="h-3 w-3 text-accent-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                <div>
+                  <span class="font-semibold text-brand-900">{title}</span>
+                  <span class="text-gray-600"> — {desc}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a href="/contact" class="btn-primary px-7 py-3">Schedule CPR/AED Training</a>
+          </div>
+        </div>
+
+        <div class="relative overflow-hidden rounded-2xl bg-brand-900 aspect-[4/3]">
+          <img
+            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80"
+            alt="CPR training demonstration in a workplace setting"
+            class="absolute inset-0 h-full w-full object-cover object-center opacity-60"
+            loading="lazy"
+          />
+          <div class="absolute bottom-0 left-0 right-0 bg-brand-900/90 backdrop-blur-sm px-8 py-6">
+            <p class="text-sm font-semibold text-accent-400 uppercase tracking-widest">On-Site Training</p>
+            <p class="mt-1 text-white font-bold text-xl leading-snug">We come to your facility and train your team.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       CTA BANNER
+  ════════════════════════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden bg-brand-900 py-24">
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 12px 12px;"></div>
+
+    <div class="relative mx-auto max-w-4xl px-4 sm:px-6 text-center">
+      <h2 class="text-4xl font-bold text-white text-balance">
+        Ready to Schedule Testing or Training?
+      </h2>
+      <p class="mt-5 text-lg text-brand-200 max-w-xl mx-auto text-pretty">
+        Tell us what your operation needs. We'll get your workers tested,
+        certified, and back on the job — fast.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="/contact" class="btn-primary text-base px-8 py-3.5">
+          Schedule Testing or Training
+        </a>
+        <a href="tel:+15555550100" class="btn-ghost text-base px-8 py-3.5">
+          Call (555) 555-0100
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
