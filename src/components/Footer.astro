@@ -3,6 +3,8 @@
  * Footer.astro — Haynes Industrial Medicine
  */
 
+import site from '@/data/site.json';
+
 const year = new Date().getFullYear();
 
 const SERVICES = [
@@ -29,16 +31,15 @@ const COMPANY = [
           <span class="text-accent-400">Industrial Medicine</span>
         </p>
         <p class="mt-4 text-sm leading-relaxed text-brand-300 max-w-xs">
-          Occupational health built by people who understand industrial work.
-          Fast, expert care — because your team doesn't have time to waste.
+          {site.footer_tagline}
         </p>
         <div class="mt-6 space-y-1 text-sm">
           <p class="text-white font-medium">
-            <a href="tel:+15555550100" class="no-underline text-accent-400 hover:text-accent-300 transition-colors">
-              (555) 555-0100
+            <a href={site.phone_href} class="no-underline text-accent-400 hover:text-accent-300 transition-colors">
+              {site.phone}
             </a>
           </p>
-          <p class="text-brand-300">Mon – Fri 7 am – 6 pm · Sat 8 am – 2 pm</p>
+          <p class="text-brand-300">{site.hours}</p>
         </div>
       </div>
 
