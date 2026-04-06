@@ -1,90 +1,78 @@
 ---
 /**
- * src/pages/about.astro — About page
+ * src/pages/about.astro — About Haynes Industrial Medicine
  */
 
 import BaseLayout from '@/layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="About"
-  description="Learn more about this Astro template — what's included and how to use it."
+  title="About Haynes Industrial Medicine"
+  description="Haynes Industrial Medicine provides DOT drug testing, respirator fit testing, and CPR/AED training for industrial workforces. Learn about our background and approach."
 >
   <main class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-    <h1 class="text-4xl font-bold text-gray-900 dark:text-white">About</h1>
+    <h1 class="text-4xl font-bold text-brand-900 dark:text-white">About Us</h1>
 
     <div class="prose-content mt-8">
       <p>
-        This is a production-ready Astro template designed to give you a
-        solid foundation for content-driven websites, personal blogs, and
-        documentation sites.
+        Haynes Industrial Medicine exists because we've seen what happens when
+        compliance testing and safety training are treated as an afterthought —
+        or when a clinic that doesn't understand industrial work is handling your
+        workforce's requirements.
       </p>
 
-      <h2>Technology Stack</h2>
+      <p>
+        The Haynes family has been in industrial operations for over fifteen years.
+        We've managed crews, navigated OSHA audits, and dealt with the real
+        pressure of keeping a workforce productive and compliant at the same time.
+        That background shapes how we operate.
+      </p>
+
+      <h2>What We're Focused On</h2>
+      <p>
+        We're building this practice around three services industrial employers
+        need regularly and need done right:
+      </p>
       <ul>
         <li>
-          <strong>Astro</strong> — Static site generator with island
-          architecture and zero-JS by default.
+          <strong>DOT Drug Testing</strong> — DOT-compliant urine drug screens
+          for regulated employers. Pre-employment, random, post-accident, and
+          reasonable suspicion. MRO review included.
         </li>
         <li>
-          <strong>TypeScript</strong> — Full type safety across all components,
-          pages, and content collections.
+          <strong>Respirator Fit Testing</strong> — OSHA-required quantitative
+          and qualitative fit testing for tight-fitting respirators, with proper
+          documentation for your records.
         </li>
         <li>
-          <strong>Tailwind CSS</strong> — Utility-first CSS with dark mode
-          support via the <code>class</code> strategy.
-        </li>
-        <li>
-          <strong>MDX</strong> — Write blog posts in Markdown with the option
-          to embed interactive JSX components.
-        </li>
-        <li>
-          <strong>Content Collections</strong> — Type-safe content with Zod
-          schema validation.
-        </li>
-        <li>
-          <strong>Sitemap</strong> — Auto-generated <code>sitemap.xml</code>{' '}
-          for SEO.
-        </li>
-        <li>
-          <strong>RSS</strong> — Auto-generated RSS feed at{' '}
-          <code>/rss.xml</code>.
+          <strong>CPR/AED Training</strong> — Certification courses for
+          individuals and work groups, scheduled around your operation and
+          conducted at your facility when that's easier.
         </li>
       </ul>
 
-      <h2>Deployment</h2>
       <p>
-        The template is pre-configured for deployment on{' '}
-        <a href="https://netlify.com" target="_blank" rel="noopener noreferrer">
-          Netlify
-        </a>
-        . Connect your Git repository and Netlify will automatically build and
-        deploy on every push to <code>main</code>.
-      </p>
-      <p>
-        Security headers (X-Frame-Options, X-Content-Type-Options, CSP, etc.)
-        are configured in <code>netlify.toml</code>.
+        We're growing deliberately. Our focus right now is on doing these three
+        things exceptionally well — not on being everything to everyone.
       </p>
 
-      <h2>CMS Integration</h2>
+      <h2>How We Work</h2>
       <p>
-        The template includes a <code>cloudcannon.config.yml</code> for
-        <a href="https://cloudcannon.com" target="_blank" rel="noopener noreferrer">
-          CloudCannon
-        </a>
-        CMS, giving editors a visual interface to manage blog posts and pages
-        without touching the code.
+        We keep things simple. Same-day drug testing is almost always available.
+        Fit testing and CPR/AED training can be scheduled around your shifts — and
+        we'll come to your facility when that works better. Documentation goes
+        directly to your safety team, ready for your files.
+      </p>
+      <p>
+        We're not a volume clinic. We're a small operation that takes the time to
+        understand your compliance program and your schedule.
       </p>
 
-      <h2>Getting Started</h2>
-      <ol>
-        <li>Clone or fork the repository.</li>
-        <li>Run <code>npm install</code>.</li>
-        <li>Run <code>npm run dev</code> and open <code>http://localhost:4321</code>.</li>
-        <li>Edit <code>astro.config.mjs</code> and set your <code>site</code> URL.</li>
-        <li>Add blog posts to <code>src/content/blog/</code>.</li>
-        <li>Deploy to Netlify by connecting your Git repo.</li>
-      </ol>
+      <h2>Get In Touch</h2>
+      <p>
+        Ready to set up testing or schedule a training? <a href="/contact">Contact us</a>
+        or give us a call. We'll figure out what you need and get it done.
+      </p>
     </div>
   </main>
 </BaseLayout>

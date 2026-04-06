@@ -8,7 +8,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
 <BaseLayout
   title="Haynes Industrial Medicine"
-  description="Occupational medicine built by people who know industrial work. Fast, expert care — DOT physicals, drug testing, injury treatment, and more."
+  description="DOT drug testing, respirator fit testing, and CPR/AED training for industrial workforces. Fast, straightforward, built for people who know industrial work."
 >
 
   <!-- ═══════════════════════════════════════════════════════════════
@@ -32,26 +32,25 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <div class="max-w-2xl">
         <!-- Eyebrow -->
         <span class="inline-flex items-center gap-2 rounded-full border border-accent-500/40 bg-accent-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent-400">
-          Occupational Medicine · Industrial Focus
+          DOT Testing · Respirator Fit · CPR/AED
         </span>
 
         <!-- Headline -->
         <h1 class="mt-6 text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl text-balance">
-          Healthcare Built for<br />
-          <span class="text-accent-400">The Workforce That Builds Everything Else</span>
+          Keep Your Workforce<br />
+          <span class="text-accent-400">Compliant and Certified</span>
         </h1>
 
         <!-- Subheadline -->
         <p class="mt-6 text-xl leading-relaxed text-brand-200 max-w-xl text-pretty">
-          Your crew keeps the world moving. We keep your crew healthy —
-          with same-day appointments, rapid results, and care that respects
-          every minute on the clock.
+          DOT drug testing, respirator fit testing, and CPR/AED certification —
+          delivered fast by people who understand what industrial work actually demands.
         </p>
 
         <!-- CTAs -->
         <div class="mt-10 flex flex-wrap gap-4">
           <a href="/contact" class="btn-primary text-base px-7 py-3">
-            Schedule an Appointment
+            Schedule Testing or Training
           </a>
           <a href="/services" class="btn-ghost text-base px-7 py-3">
             See Our Services
@@ -68,7 +67,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <ul class="grid grid-cols-2 divide-x divide-accent-400/40 lg:grid-cols-4 list-none m-0 p-0">
         {[
-          { stat: 'Same-Day', label: 'Appointments Available' },
+          { stat: 'Same-Day', label: 'Testing Available' },
           { stat: '24 hrs', label: 'Results Turnaround' },
           { stat: 'On-Site', label: 'Services Available' },
           { stat: '15+ yrs', label: 'Industrial Experience' },
@@ -90,50 +89,32 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <div class="text-center max-w-2xl mx-auto mb-14">
         <span class="text-xs font-semibold uppercase tracking-widest text-accent-600">What We Do</span>
         <h2 class="mt-3 text-4xl font-bold text-brand-900 text-balance">
-          Comprehensive Occupational Medicine
+          Testing and Training Built for Industry
         </h2>
         <p class="mt-4 text-lg text-gray-600">
-          Everything your operation needs to stay compliant, productive, and protected — under one roof.
+          We focus on what industrial employers need most — keeping workers compliant, certified, and ready to work.
         </p>
       </div>
 
       <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 list-none m-0 p-0">
         {[
           {
-            title: 'DOT Physical Examinations',
-            desc: 'FMCSA-certified exams for commercial drivers. Fast scheduling so your drivers stay on the road, not in a waiting room.',
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" /></svg>`,
-            href: '/services#dot',
+            title: 'DOT Drug Testing',
+            desc: 'DOT-compliant urine drug screens for regulated employers. Pre-employment, random, post-accident, and reasonable suspicion — with fast turnaround and MRO review.',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23-.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" /></svg>`,
+            href: '/services#dot-drug-testing',
           },
           {
-            title: 'Drug & Alcohol Testing',
-            desc: 'DOT and non-DOT drug screens, breath alcohol tests, and MRO services. Random pools, post-accident, and pre-employment.',
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>`,
-            href: '/services#drug-testing',
+            title: 'Respirator Fit Testing',
+            desc: 'OSHA-required quantitative and qualitative fit testing for tight-fitting respirators. We test, document, and get your workers cleared to work.',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z" /></svg>`,
+            href: '/services#respirator-fit',
           },
           {
-            title: 'Workers\' Comp Injury Care',
-            desc: 'Immediate treatment for workplace injuries. We coordinate directly with adjusters to move claims forward — not sideways.',
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" /></svg>`,
-            href: '/services#injury-care',
-          },
-          {
-            title: 'Pre-Employment Physicals',
-            desc: 'Baseline exams, functional capacity evaluations, and fit-for-duty assessments that protect you from day one.',
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>`,
-            href: '/services#pre-employment',
-          },
-          {
-            title: 'OSHA Medical Surveillance',
-            desc: 'Hearing conservation, respiratory protection, hazmat exams, and full recordkeeping support to keep your site compliant.',
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>`,
-            href: '/services#osha',
-          },
-          {
-            title: 'Return-to-Work Programs',
-            desc: 'Modified duty plans, functional assessments, and ongoing coordination to get injured workers back safely — and keep them there.',
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>`,
-            href: '/services#return-to-work',
+            title: 'CPR/AED Training',
+            desc: 'American Heart Association-aligned CPR and AED certification for individuals and teams. We come to your facility and work around your schedule.',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>`,
+            href: '/services#cpr-aed',
           },
         ].map(({ title, desc, icon, href }) => (
           <li>
@@ -254,7 +235,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <span class="text-xs font-semibold uppercase tracking-widest text-accent-600">Simple Process</span>
       <h2 class="mt-3 text-4xl font-bold text-brand-900">Getting Started Is Simple</h2>
       <p class="mt-4 text-lg text-gray-600">
-        We've cut the friction out of occupational health. Here's how it works.
+        Schedule testing or training in minutes. Here's how it works.
       </p>
 
       <ol class="mt-14 grid gap-8 sm:grid-cols-3 list-none m-0 p-0 text-left">
@@ -262,17 +243,17 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
           {
             step: '01',
             title: 'Call or Book Online',
-            desc: 'Reach us by phone or through our online portal. Same-day slots are almost always available — no referral needed.',
+            desc: 'Tell us what you need — DOT drug screens, respirator fit testing, or CPR/AED training. Same-day testing is almost always available.',
           },
           {
             step: '02',
-            title: 'We See Your Worker',
-            desc: 'Your employee arrives (or we come to you). No long waits, no unnecessary steps. We focus on what the job requires.',
+            title: 'We Handle It Fast',
+            desc: 'Workers come to us or we come to your facility. No unnecessary steps — just the test or certification your compliance program requires.',
           },
           {
             step: '03',
-            title: 'Results Delivered Fast',
-            desc: 'Paperwork, lab results, and clearance letters go straight to your safety team — usually within 24 hours.',
+            title: 'Documentation Delivered Same Day',
+            desc: 'Drug screen results, fit test records, and training certificates go straight to your safety team — ready for your files.',
           },
         ].map(({ step, title, desc }) => (
           <li class="relative pl-0">
@@ -317,15 +298,15 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
     <div class="relative mx-auto max-w-4xl px-4 sm:px-6 text-center">
       <h2 class="text-4xl font-bold text-white text-balance">
-        Ready to Protect Your Workforce?
+        Ready to Schedule Testing or Training?
       </h2>
       <p class="mt-5 text-lg text-brand-200 max-w-xl mx-auto text-pretty">
-        Let's talk about what your operation needs. We'll build a program
-        around your schedule, your industry, and your team.
+        Tell us what your operation needs. We'll get your workers tested,
+        certified, and back on the job — fast.
       </p>
       <div class="mt-10 flex flex-wrap justify-center gap-4">
         <a href="/contact" class="btn-primary text-base px-8 py-3.5">
-          Schedule an Appointment
+          Schedule Testing or Training
         </a>
         <a href="tel:+15555550100" class="btn-ghost text-base px-8 py-3.5">
           Call (555) 555-0100
